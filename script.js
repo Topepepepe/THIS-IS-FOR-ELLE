@@ -27,15 +27,18 @@ function displayCat() {
 }
 
 // Function to display the cat-heart.gif
-function displayCatHeart() {
-    document.getElementById('image-container').innerHTML = '';
+function displayCarnation() {
     var imageContainer = document.getElementById('image-container');
-    var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif'; // Assuming the cat-heart image is named "cat-heart.gif"
-    catHeartImage.alt = 'Cat Heart';
-    catHeartImage.onload = function() {
-        imageContainer.appendChild(catHeartImage);
+    imageContainer.innerHTML = ''; // Clear existing content
+    var carnationImage = new Image(); // Changed variable name
+    carnationImage.src = '/mnt/data/picmix.com_2133564.gif'; // Path to the uploaded GIF
+    carnationImage.alt = 'Carnation';
+    carnationImage.onload = function() {
+        imageContainer.appendChild(carnationImage);
         document.getElementById('options').style.display = 'none';
+    };
+    carnationImage.onerror = function() {
+        console.error('Error loading the GIF. Please check the file path.');
     };
 }
 
