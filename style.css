@@ -1,37 +1,40 @@
+/* style.css */
+
 body {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    margin: 0;
-    background-color: #800000;
+    font-family: "Times New Roman", serif; /* Use Times New Roman font */
+    text-align: center; /* Center-align text */
+    margin: 0; /* Remove default margin */
+    background-color: #800000; /* Set background color to maroon */
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: center; /* Center-align items vertically */
+    height: 100vh; /* Make the container full viewport height */
 }
 
-#image-container {}
+#image-container {
+    /* This container will hold the images */
+}
 
 #question {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 52px;
-    color: white;
+    font-family: "Times New Roman", serif; /* Apply Times New Roman font to the question */
+    font-size: 52px; /* Set font size for the question */
 }
 
 #options {
-    margin-top: 20px;
+    margin-top: 20px; /* Add space above the options */
 }
 
 button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 26px;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #FB607F;
-    color: white;
-    border: none;
-    cursor: pointer;
+    padding: 10px 20px; /* Set padding for buttons */
+    margin: 0 10px; /* Set margin around buttons */
+    font-size: 26px; /* Set font size for buttons */
+    font-family: "Times New Roman", serif; /* Apply Times New Roman font to the options */
+    background-color: #FB607F; /* Set button background color */
+    color: white; /* Set text color to white */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Set cursor to pointer on hover */
 }
