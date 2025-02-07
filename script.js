@@ -7,7 +7,7 @@ function selectOption(option) {
         // Flash maroon color
         flashMaroonColor(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
-            displayCatHeart(); // Display the new cat-heart.gif
+            displayCatHeart(); // Display the custom image
         });
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
@@ -15,7 +15,7 @@ function selectOption(option) {
         // Increase font size of "Yes" button
         var yesButton = document.getElementById('yes-button');
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by * 2
+        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by * 2px
         yesButton.style.fontSize = newSize + 'px';
     } else {
         // If neither "Yes" nor "No" was clicked, show an alert message
@@ -25,121 +25,54 @@ function selectOption(option) {
 
 // Function to flash maroon color and then execute a callback function
 function flashMaroonColor(callback) {
+    var maroon = '#800000';
     var interval = setInterval(function() {
-        document.body.style.backgroundColor = '#800000'; // Maroon color
-    }, 200); // Change to maroon every 200 milliseconds
+        document.body.style.backgroundColor = maroon;
+    }, 200); // Change color every 200 milliseconds
     setTimeout(function() {
         clearInterval(interval);
         document.body.style.backgroundColor = ''; // Reset background color
         if (callback) {
             callback();
         }
-    }, 2000); // Flash maroon color for 2 seconds
+    }, 2000); // Flash color for 2 seconds
 }
 
-// Function to display the first image (red flower)
+// Function to display the cat.gif initially
 function displayCat() {
+    // Get the container where the image will be displayed
     var imageContainer = document.getElementById('image-container');
+    // Create a new Image element for the cat
     var catImage = new Image();
-    catImage.src = '/mnt/data/picmix.com_2133564.gif'; // New red flower image
-    catImage.alt = 'Red Flower';
+    // Set the source (file path) for the cat image
+    catImage.src = 'cat.gif'; // Assuming the cat image is named "cat.gif"
+    // Set alternative text for the image (for accessibility)
+    catImage.alt = 'Cat';
+    // When the cat image is fully loaded, add it to the image container
     catImage.onload = function() {
         imageContainer.appendChild(catImage);
     };
 }
 
-// Function to display the second image (black cat)
+// Function to display the custom uploaded image
 function displayCatHeart() {
-    document.getElementById('image-container').innerHTML = ''; // Clear existing content
-    var imageContainer = document.getElementById('image-container');
-    var catHeartImage = new Image();
-    catHeartImage.src = '/mnt/data/cat.gif'; // New black cat image
-    catHeartImage.alt = 'Black Cat';
-    catHeartImage.onload = function() {
-        imageContainer.appendChild(catHeartImage);
-        document.getElementById('options').style.display = 'none'; // Hide the options
-    };
-}
-
-// Display the first image initially
-displayCat();
-Changes Made:
-Replaced Rainbow Colors with Maroon Flash:
-
-The function flashRainbowColors is now flashMaroonColor.
-It changes the background color to maroon (#800000) and holds it for 2 seconds.
-Image Updates:
-
-The first image (picmix.com_2133564.gif) displays as the red flower.
-The second image (cat.gif) displays as the black cat.
-Let me know if you need any further adjustments! 😊
-
-
-
-
-
-
-
-You said:
-remove the comment
-ChatGPT said:
-Here's your updated code without the comments:
-
-javascript
-Copy
-Edit
-// script.js
-
-function selectOption(option) {
-    if (option === 'yes') {
-        flashMaroonColor(function() {
-            document.getElementById('question').style.display = 'none';
-            displayCatHeart();
-        });
-    } else if (option === 'no') {
-        document.getElementById('no-button').innerText = 'You sure?';
-        var yesButton = document.getElementById('yes-button');
-        var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2;
-        yesButton.style.fontSize = newSize + 'px';
-    } else {
-        alert('Invalid option!');
-    }
-}
-
-function flashMaroonColor(callback) {
-    var interval = setInterval(function() {
-        document.body.style.backgroundColor = '#800000';
-    }, 200);
-    setTimeout(function() {
-        clearInterval(interval);
-        document.body.style.backgroundColor = '';
-        if (callback) {
-            callback();
-        }
-    }, 2000);
-}
-
-function displayCat() {
-    var imageContainer = document.getElementById('image-container');
-    var catImage = new Image();
-    catImage.src = '/mnt/data/picmix.com_2133564.gif';
-    catImage.alt = 'Red Flower';
-    catImage.onload = function() {
-        imageContainer.appendChild(catImage);
-    };
-}
-
-function displayCatHeart() {
+    // Clear existing content in the image container
     document.getElementById('image-container').innerHTML = '';
+    // Get the container where the image will be displayed
     var imageContainer = document.getElementById('image-container');
+    // Create a new Image element for the custom image
     var catHeartImage = new Image();
-    catHeartImage.src = '/mnt/data/cat.gif';
-    catHeartImage.alt = 'Black Cat';
+    // Set the source (file path) for the custom image
+    catHeartImage.src = '/mnt/data/picmix.com_2133564.gif'; // Using the uploaded image
+    // Set alternative text for the image (for accessibility)
+    catHeartImage.alt = 'Custom Image';
+    // When the custom image is fully loaded, add it to the image container
     catHeartImage.onload = function() {
         imageContainer.appendChild(catHeartImage);
+        // Hide the options container
         document.getElementById('options').style.display = 'none';
     };
 }
 
+// Display the cat.gif initially
 displayCat();
